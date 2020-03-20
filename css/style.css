@@ -1,39 +1,45 @@
 /*Load fonts*/
-@font-face{
+@font-face {
   font-family: Roboto;
   src: url(../fonts/Roboto-Regular.ttf);
 }
-body{
+
+body {
   font-family: Roboto;
   background-color: #323d4a;
 }
+
 /*Menu bar style*/
-.topnav{
+.topnav {
   border-radius: 5px;
   overflow: hidden;
   height: 50px;
   width: 100%;
   background-color: #f9efd3;
 }
-.topnav a{
+
+.topnav a {
   float: left;
   padding: 15px 17px;
   text-decoration: none;
   color: #323d4a;
 }
-.topnav a.active{
-  background-color:#f8d77f;
+
+.topnav a.active {
+  background-color: #f8d77f;
 }
-.icons{
+
+.icons {
   margin-right: 10px;
 }
 
-.search-box{
+.search-box {
   padding: 10px;
   float: right;
 }
+
 /*Right nav Style*/
-.right-nav{
+.right-nav {
   margin-right: 40px;
   background-color: #f9efd3;
   width: 20%;
@@ -42,30 +48,35 @@ body{
   margin-top: 18px;
   border-radius: 5px;
 }
-.profile{
+
+.profile {
   display: block;
   border: 5px solid #323d4a;
   border-radius: 100%;
-  width:90%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
 }
-.right-nav h3{
+
+.right-nav h3 {
   font-size: 25px;
   text-align: center;
 }
-.right-nav p{
+
+.right-nav p {
   text-align: center;
   width: 80%;
   margin-right: auto;
   margin-left: auto;
 }
+
 hr {
   color: #323d4a;
 }
+
 /*Posts place style*/
-.posts{
+.posts {
   margin-left: 10%;
   border-radius: 5px;
   margin-top: 18px;
@@ -74,7 +85,8 @@ hr {
   height: 100%;
   background: #f9efd3;
 }
-.posts-pic{
+
+.posts-pic {
   display: block;
   border-radius: 5px;
   width: 100%;
@@ -82,13 +94,16 @@ hr {
   margin-right: auto;
   margin-left: auto;
 }
-.posts h1{
+
+.posts h1 {
   text-align: center;
 }
-.posts p{
+
+.posts p {
   padding: 10px 12px;
 }
-.read-more{
+
+.read-more {
   text-decoration: none;
   float: right;
   padding: 5px 7px;
