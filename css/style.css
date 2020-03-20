@@ -1,33 +1,65 @@
 /*Load fonts*/
 @font-face{
-    font-family: Roboto;
-    src: url(../fonts/Roboto-Regular.ttf);
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
 }
 body{
-    font-family: Roboto;
-    background-color: #323d4a;
+  font-family: Roboto;
+  background-color: #323d4a;
 }
 /*Menu bar style*/
 .topnav{
-    overflow: hidden;
-    height: 50px;
-    width: 100%;
-    background-color: #f9efd3;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 50px;
+  width: 100%;
+  background-color: #f9efd3;
 }
 .topnav a{
-    float: left;
-    padding: 15px 17px;
-    text-decoration: none;
-    color: #323d4a;
+  float: left;
+  padding: 15px 17px;
+  text-decoration: none;
+  color: #323d4a;
 }
 .topnav a.active{
-    background-color:#f8d77f;
+  background-color:#f8d77f;
 }
 .icons{
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .search-box{
-    padding: 10px;
-    float: right;
+  padding: 10px;
+  float: right;
+}
+/*Right nav Style*/
+.right-nav{
+  background-color: #f9efd3;
+  width: 20%;
+  height: 100%;
+  float: right;
+  margin-top: 18px;
+  border-radius: 5px;
+}
+.profile{
+  display: block;
+  border: 5px solid #323d4a;
+  border-radius: 100%;
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.right-nav h3{
+  font-size: 25px;
+  text-align: center;
+}
+.right-nav p{
+  text-align: center;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+hr {
+  color: #323d4a;
 }
