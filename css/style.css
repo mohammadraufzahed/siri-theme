@@ -10,34 +10,9 @@ body {
 }
 
 /*Menu bar style*/
-.topnav {
-  border-radius: 5px;
-  overflow: hidden;
-  height: 50px;
-  width: 100%;
-  background-color: #f9efd3;
+.nav-top{
+  background-color: #f9efd3
 }
-
-.topnav a {
-  float: left;
-  padding: 15px 17px;
-  text-decoration: none;
-  color: #323d4a;
-}
-
-.topnav a.active {
-  background-color: #f8d77f;
-}
-
-.icons {
-  margin-right: 10px;
-}
-
-.search-box {
-  padding: 10px;
-  float: right;
-}
-
 /*Right nav Style*/
 .right-nav {
   margin-right: 40px;
