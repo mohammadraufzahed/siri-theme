@@ -1,6 +1,6 @@
 import type { NextComponentType } from "next";
 import Link from "next/link";
-import classes from "../../styles/components/Navbar/index.module.scss";
+import classes from "~/styles/components/Navbar/index.module.scss";
 import { FaSearch, FaAddressCard, FaHome } from "react-icons/fa";
 
 const Navbar: NextComponentType = () => {

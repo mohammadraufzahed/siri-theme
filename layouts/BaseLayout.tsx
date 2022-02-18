@@ -1,7 +1,7 @@
 import type { NextComponentType } from "next";
 import Head from "next/head";
 import { Children, ReactChild, ReactChildren } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "~/components/Navbar";
 import classes from "../styles/layouts/BaseLayout/index.module.scss";
 
 const BaseLayout = ({ children }: { children: ReactChild | ReactChildren }) => {

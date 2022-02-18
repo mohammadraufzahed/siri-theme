@@ -1,5 +1,5 @@
 import type { NextPage } from "next/types";
-import BaseLayout from "../../layouts/BaseLayout";
+import BaseLayout from "~/layouts/BaseLayout";
 
 const AppJs = () => {
   return <div>Hello From Mohammad </div>;
