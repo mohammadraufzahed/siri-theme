@@ -1,0 +1,20 @@
+.container {
+  background-color: var(--primary-one);
+  width: 100vw;
+  min-height: 100vh;
+  max-height: max-content;
+  font-family: Roboto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  > .footer {
+    margin-top: auto;
+    background-color: var(--primary-four);
+    color: var(--primary-three);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 1.5vh 0vw;
+  }
+}
