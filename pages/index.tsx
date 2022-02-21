@@ -1,12 +1,31 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Image from "next/image";
+import { useState } from "react";
+import { PostType } from "types/PostType";
+import PostBox from "~/components/PostBox";
 import BaseLayout from "~/layouts/BaseLayout";
 import classes from "~/styles/pages/index/index.module.scss";
 
-const Index = () => {
+const chunk = (arr: Array<any>, size: number) =>
+  arr.reduce(
+    (acc, e, i) => (
+      i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc
+    ),
+    []
+  );
+
+const Index = ({ posts }: { posts: PostType[] }) => {
+  const dividedPosts: Array<PostType[]> = chunk(posts, 5);
+  const [pagination, setPagination] = useState<number>(0);
   return (
     <div className={classes.container}>
-      <div className={classes.posts}>Blog</div>
+      <div className={classes.posts}>
+        {dividedPosts
+          ? dividedPosts[pagination].map((post, key) => {
+              return <PostBox post={post} key={key} />;
+            })
+          : null}
+      </div>
       <section className={classes.aboutme}>
         <figure>
           <Image
@@ -25,6 +44,21 @@ const Index = () => {
       </section>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const posts = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "GET",
+  })
+    .then((data) => data.json())
+    .then((json) => json);
+  return {
+    props: {
+      posts,
+    },
+  };
 };
 
 Index.PageLayout = BaseLayout;

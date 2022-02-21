@@ -1,12 +1,15 @@
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: max-content;
+  grid-auto-columns: max-content;
   margin: 1vh 2.5vw;
   & > .posts {
     grid-column: 1/4;
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
+    row-gap: 2vh;
   }
   & > .aboutme {
     display: grid;
@@ -14,6 +17,7 @@
     justify-items: center;
     background-color: var(--primary-two);
     border-radius: 4px;
+    height: max-content;
     color: var(--primary-one);
     & > figure {
       & > span {
