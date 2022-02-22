@@ -1,0 +1,103 @@
+.container {
+  margin: 1vh 2.5vw;
+  border-radius: 0.3vw;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--primary-two);
+  > .left {
+    display: flex;
+    flex-direction: row;
+    > .navbar_item {
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 2vh 2vw;
+      color: var(--primary-three);
+      transition: 200ms ease;
+      & > svg {
+        margin-right: 0.4vw;
+      }
+      &:hover {
+        color: var(--primary-one);
+      }
+    }
+    > [class*="active"] {
+      background-color: var(--primary-four);
+      color: var(--primary-three);
+    }
+  }
+  > .right {
+    justify-self: end;
+    align-self: center;
+    padding-right: 1em;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    > * {
+      border: 0;
+      text-align: center;
+    }
+    > input {
+      cursor: text;
+      background-color: var(--primary-three);
+      &:focus {
+        outline: none;
+      }
+    }
+    > button {
+      height: 100%;
+      font-size: 1.1rem;
+      background-color: var(--primary-four);
+      color: var(--primary-three);
+      cursor: pointer;
+      transition: all 200ms ease;
+      &:hover {
+        color: var(--primary-four);
+        background-color: var(--primary-three);
+      }
+      padding: 0.4em;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    & {
+      & > .left {
+        > .navbar_item {
+          font-size: 0.95rem;
+          padding: 1.7vh 3vw;
+        }
+      }
+      & > .right {
+        & > button {
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 512px) {
+    & {
+      grid-template-columns: 1fr;
+      & > .left {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        & > .navbar_item {
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+      & > .right {
+        justify-self: center;
+        width: 100%;
+        padding: 0;
+        & > input {
+          width: 86.1%;
+        }
+        & > button {
+          font-size: 1.2rem;
+          padding: 0.7vh 3vw;
+        }
+      }
+    }
+  }
+}

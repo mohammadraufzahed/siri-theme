@@ -1,0 +1,108 @@
+.post {
+  width: 100%;
+  background-color: var(--primary-three);
+  color: var(--primary-one);
+  margin-right: 2vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  overflow-x: hidden;
+  text-align: center;
+  border-radius: 1vw;
+  & + & {
+    margin-top: 2vh;
+  }
+  > figure {
+    margin: 0;
+    transition: 400ms ease;
+    transition-property: filter;
+    width: 100%;
+    &:hover {
+      filter: blur(0.1vw);
+    }
+    & img {
+      width: 100%;
+      min-width: 206px;
+      height: 100%;
+      min-height: 102px;
+      @media only screen and (max-width: 576px) {
+        width: 100vw;
+      }
+    }
+  }
+  & > h1 {
+    font-size: 1.5rem;
+    margin: 3vh 0vw;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 400ms ease;
+    transition-property: color;
+    &::after {
+      display: block;
+      content: "";
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-two);
+      margin-top: 1vh;
+      transition: 400ms ease;
+      visibility: hidden;
+      opacity: 0;
+      transition-property: visibility, opacity, width;
+    }
+    &:hover {
+      color: var(--primary-two);
+      &::after {
+        width: 100%;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    @media only screen and (max-width: 1201px) {
+      & {
+        font-size: 1.3rem;
+      }
+    }
+    @media only screen and (max-width: 992px) {
+      & {
+        font-size: 1.1rem;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      & {
+        font-size: 1.2rem;
+        word-wrap: break-word;
+      }
+    }
+  }
+  & > p {
+    font-weight: normal;
+    font-size: 1rem;
+    margin: 1vh 2vw;
+    letter-spacing: 0.05vw;
+    @media only screen and (max-width: 1201px) {
+      & {
+        font-size: 0.8rem;
+        word-wrap: break-word;
+      }
+    }
+  }
+  & > a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--primary-four);
+    margin: 2vh 3vw;
+    justify-self: end;
+    transition: 400ms ease;
+    transition-property: padding, color, background-color;
+    &:hover {
+      background-color: var(--primary-four);
+      color: var(--primary-three);
+      padding: 0.5vw;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    & {
+      margin: 2vh auto;
+    }
+  }
+}
