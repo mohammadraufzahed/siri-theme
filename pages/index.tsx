@@ -1,6 +1,8 @@
+import { getPosts } from "functions/getPosts";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import { useState } from "react";
+import { useQuery } from "react-query";
 import { PostType } from "types/PostType";
 import PostBox from "~/components/PostBox";
 import BaseLayout from "~/layouts/BaseLayout";
@@ -15,16 +17,45 @@ const chunk = (arr: Array<any>, size: number) =>
   );
 
 const Index = ({ posts }: { posts: PostType[] }) => {
-  const dividedPosts: Array<PostType[]> = chunk(posts, 5);
+  const postsQuery = useQuery("posts-query", getPosts, {
+    initialData: posts,
+    cacheTime: 300000,
+    staleTime: 300000,
+    select: (data) => {
+      return chunk(data, 5);
+    },
+  });
   const [pagination, setPagination] = useState<number>(0);
   return (
     <div className={classes.container}>
       <div className={classes.posts}>
-        {dividedPosts
-          ? dividedPosts[pagination].map((post, key) => {
+        {postsQuery.data
+          ? postsQuery.data[pagination].map((post: PostType, key: number) => {
               return <PostBox post={post} key={key} />;
             })
           : null}
+        <div className={classes.pagination_container}>
+          <button
+            className={classes.pagination_prev}
+            disabled={pagination <= 0}
+            onClick={() => {
+              setPagination(pagination - 1);
+              scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            Prev
+          </button>
+          <button
+            className={classes.pagination_next}
+            disabled={pagination >= postsQuery.data.length}
+            onClick={() => {
+              setPagination(pagination + 1);
+              scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            Next
+          </button>
+        </div>
       </div>
       <section className={classes.aboutme}>
         <figure>
@@ -49,11 +80,7 @@ const Index = ({ posts }: { posts: PostType[] }) => {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const posts = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "GET",
-  })
-    .then((data) => data.json())
-    .then((json) => json);
+  const posts = await getPosts();
   return {
     props: {
       posts,

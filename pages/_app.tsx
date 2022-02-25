@@ -1,7 +1,9 @@
 import "~/styles/globals.scss";
 import "normalize.css/normalize.css";
 import type { AppProps } from "next/app";
-import { ComponentType } from "react";
+import { ComponentType, useState } from "react";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 type MyAppProps = AppProps & {
   Component: AppProps["Component"] & {
@@ -10,16 +12,20 @@ type MyAppProps = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: MyAppProps) {
+  const [reactQueryClient] = useState(() => new QueryClient());
   return (
-    <>
-      {Component.PageLayout ? (
-        <Component.PageLayout>
+    <QueryClientProvider client={reactQueryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        {Component.PageLayout ? (
+          <Component.PageLayout>
+            <Component {...pageProps} />
+          </Component.PageLayout>
+        ) : (
           <Component {...pageProps} />
-        </Component.PageLayout>
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </>
+        )}
+      </Hydrate>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    </QueryClientProvider>
   );
 }
 
