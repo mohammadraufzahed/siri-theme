@@ -17,13 +17,13 @@
     margin: 0;
     transition: 400ms ease;
     transition-property: filter;
-    width: 100%;
+    width: 100% !important;
     &:hover {
       filter: blur(0.1vw);
     }
     & > span {
-      width: 100%;
-      height: 100%;
+      width: 100% !important;
+      height: 100% !important;
       img {
         width: 100%;
         min-width: 206px;
